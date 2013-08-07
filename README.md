@@ -1,2 +1,2 @@
-flybywings
-==========
+flybywings - Small wingS demos 
+=============================

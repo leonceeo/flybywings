@@ -1,7 +1,10 @@
 package fbw;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import org.wings.SBorderLayout;
 import org.wings.SButton;
+import org.wings.SFlowLayout;
 import org.wings.SFrame;
 import org.wings.SPanel;
 
@@ -11,11 +14,19 @@ import org.wings.SPanel;
 public class Example {
 
     public Example() {
-        SFrame frame = new SFrame();
+        final SFrame frame = new SFrame();
         frame.setTitle("Pretty Simple Wings Examples");
-        SPanel panel = new SPanel(new SBorderLayout());
-        panel.add(new SButton("Test"), SBorderLayout.CENTER);
-        frame.setContentPane(panel);
+        SPanel panel = new SPanel(new SFlowLayout());
+        SButton btn = new SButton("Change frame title");
+        btn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setTitle("A new title");
+            }
+        });
+        panel.add(btn);
+        frame.getContentPane().add(panel, SBorderLayout.CENTER);
         frame.show();
     }
     

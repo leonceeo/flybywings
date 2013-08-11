@@ -1,32 +1,29 @@
 package fbw;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import org.wings.SBorderLayout;
-import org.wings.SButton;
-import org.wings.SFlowLayout;
+import org.wings.SDimension;
 import org.wings.SFrame;
-import org.wings.SPanel;
+import org.wings.STabbedPane;
+import org.wings.URLResource;
+import org.wings.header.Script;
+import org.wings.resource.DefaultURLResource;
 
 /**
  * @author leon
  */
-public class Example {
+public class Example { 
 
     public Example() {
         final SFrame frame = new SFrame();
-        frame.setTitle("Pretty Simple Wings Examples");
-        SPanel panel = new SPanel(new SFlowLayout());
-        SButton btn = new SButton("Change frame title");
-        btn.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setTitle("A new title");
-            }
-        });
-        panel.add(btn);
-        frame.getContentPane().add(panel, SBorderLayout.CENTER);
+        frame.addHeader(new Script("text/javascript", new DefaultURLResource("../jquery-1.10.2.min.js")));
+        frame.addHeader(new Script("text/javascript", new DefaultURLResource("../fbw.js")));
+        frame.addHeader(new Script("text/javascript", new DefaultURLResource("../searchField.js")));
+        STabbedPane examplesPanel = new STabbedPane();
+        examplesPanel.setPreferredSize(SDimension.FULLAREA);
+        frame.getContentPane().setLayout(new SBorderLayout());
+        frame.getContentPane().add(examplesPanel, SBorderLayout.CENTER);
+        examplesPanel.addTab("Search field", new SearchPanel());
+        examplesPanel.addTab("Async component generation", new AsyncComponentGenerationPanel());
         frame.show();
     }
     

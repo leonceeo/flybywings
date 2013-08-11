@@ -49,7 +49,7 @@ public class SearchPanel extends SPanel {
                 public void doneRendering(SRenderEvent renderEvent) {
                     // Every time the text field is rendered (for example a page refresh) we need to include set it up on the client. This
                     // is done via a javascript listener
-                    SessionManager.getSession().getScriptManager().addScriptListener(new JavaScriptListener(null, null, "initSearchField();"));
+                    SessionManager.getSession().getScriptManager().addScriptListener(new JavaScriptListener(null, null, "initSearchField('searchField');"));
                 }
             });
         }

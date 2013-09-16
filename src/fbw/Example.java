@@ -4,26 +4,29 @@ import org.wings.SBorderLayout;
 import org.wings.SDimension;
 import org.wings.SFrame;
 import org.wings.STabbedPane;
-import org.wings.URLResource;
 import org.wings.header.Script;
 import org.wings.resource.DefaultURLResource;
 
 /**
- * @author leon
+ * @author leon, stephan
  */
-public class Example { 
+public class Example {
 
     public Example() {
-        final SFrame frame = new SFrame();
-        frame.addHeader(new Script("text/javascript", new DefaultURLResource("../jquery-1.10.2.min.js")));
-        frame.addHeader(new Script("text/javascript", new DefaultURLResource("../fbw.js")));
+        final SFrame frame = new SFrame("Fly By Wings");
+        frame.addHeader(new Script("text/javascript", new DefaultURLResource("../js/jquery.js")));
+        frame.addHeader(new Script("text/javascript", new DefaultURLResource("../js/jquery.atmosphere.js")));
+        frame.addHeader(new Script("text/javascript", new DefaultURLResource("../js/fbw.search.js")));
+        frame.addHeader(new Script("text/javascript", new DefaultURLResource("../js/fbw.serverpush.js")));
+
         STabbedPane examplesPanel = new STabbedPane();
         examplesPanel.setPreferredSize(SDimension.FULLAREA);
+        examplesPanel.addTab("Search Field", new SearchPanel());
+        examplesPanel.addTab("Async Component Generation", new AsyncComponentGenerationPanel());
+        examplesPanel.addTab("Server Push", new ServerPushPanel());
+
         frame.getContentPane().setLayout(new SBorderLayout());
         frame.getContentPane().add(examplesPanel, SBorderLayout.CENTER);
-        examplesPanel.addTab("Search field", new SearchPanel());
-        examplesPanel.addTab("Async component generation", new AsyncComponentGenerationPanel());
         frame.show();
     }
-    
 }

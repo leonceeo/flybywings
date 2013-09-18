@@ -22,6 +22,7 @@
         <servlet-name>ServerPush</servlet-name>
         <servlet-class>org.atmosphere.cpr.AtmosphereServlet</servlet-class>
         <async-supported>true</async-supported>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServerPush</servlet-name>

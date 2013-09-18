@@ -4,7 +4,7 @@
         <session-timeout>30</session-timeout>
     </session-config>
     <listener>
-        <listener-class>fbw.serverpush.AtmosphereSessionListener</listener-class>
+        <listener-class>fbw.serverpush.ServerPushSessionListener</listener-class>
     </listener>
     <servlet>
         <servlet-name>Example</servlet-name>
@@ -22,7 +22,6 @@
         <servlet-name>ServerPush</servlet-name>
         <servlet-class>org.atmosphere.cpr.AtmosphereServlet</servlet-class>
         <async-supported>true</async-supported>
-        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServerPush</servlet-name>

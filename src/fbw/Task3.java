@@ -17,9 +17,31 @@ import org.wings.SSpinner;
 import org.wings.STextField;
 
 /**
- * @author stephan
+ * This demo shows how to use the new server push infrastructure for wingS.
+ *
+ * The actual scenario is the following: the text of "label" can be modified by
+ * either a client initiated request or by an active server push. If the user
+ * clicks the "updateButton", the text of "label" is set to the text of
+ * "updateTextField" using the traditional wingS request-response-cycle. In case
+ * the user clicks the "pushButton", a separate thread is started (or stopped)
+ * on the server side which pushes partial text updates for "label" to the
+ * client. This is done by means of the newly introduced Pushable pattern and a
+ * scheduler executing the Pushable at a fixed rate which is defined by the
+ * value of "pushSpinner" in milliseconds. First and foremost this demo is a
+ * proof of concept that partial component updates can actively be pushed to the
+ * client. Additionally it shows that concurrent state changes (for one and the
+ * same component) can be triggered by client and server initiated requests or
+ * pushes without interfering each other (means synchronization works as well).
+ *
+ * Since under the hood new server push infrastructure for wingS utilizes the
+ * Atmosphere framework, you have to make sure you're using a compatible browser
+ * and web server to run the demo. Please see this document for further details:
+ *
+ * https://github.com/Atmosphere/atmosphere/wiki/Supported-WebServers-and-Browsers
+ *
+ * @author Stephan Schuster
  */
-public class ServerPushPanel extends SPanel {
+public class Task3 extends SPanel {
 
     private final STextField updateTextField;
     private final SButton updateButton;
@@ -29,7 +51,7 @@ public class ServerPushPanel extends SPanel {
     private ScheduledExecutorService scheduler;
     private Pushable pushable;
 
-    public ServerPushPanel() {
+    public Task3() {
         pushable = new UpdateLabelText().preventEpochUpdates();
 
         updateTextField = new STextField("Yippie ya yeah!");

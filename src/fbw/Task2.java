@@ -5,6 +5,6 @@ import org.wings.SPanel;
 /**
  * @author leon 
  */
-public class AsyncComponentGenerationPanel extends SPanel {
+public class Task2 extends SPanel {
     
 }

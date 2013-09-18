@@ -1,6 +1,5 @@
 package fbw;
 
-import java.util.Locale;
 import org.wings.LowLevelEventListener;
 import org.wings.SBorderLayout;
 import org.wings.SDimension;
@@ -15,11 +14,11 @@ import org.wings.session.SessionManager;
 /**
  * @author leon
  */
-public class SearchPanel extends SPanel {
+public class Task1 extends SPanel {
     private final SearchField searchField;
     private final SLabel contentLabel;
 
-    public SearchPanel() { 
+    public Task1() { 
         SBorderLayout borderLayout = new SBorderLayout();
         setLayout(borderLayout);
         borderLayout.setVgap(10);

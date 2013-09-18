@@ -51,7 +51,8 @@ import org.slf4j.LoggerFactory;
  * https://github.com/Atmosphere/atmosphere/wiki/Understanding-JavaScript-functions
  * https://github.com/Atmosphere/atmosphere/wiki/jQuery.atmosphere.js-atmosphere.js-API
  *
- * http://async-io.org/ http://async-io.org/tutorial.html
+ * http://async-io.org/
+ * http://async-io.org/tutorial.html
  *
  * @author Stephan Schuster
  */

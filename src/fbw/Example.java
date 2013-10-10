@@ -46,6 +46,7 @@ public class Example {
         frame.addHeader(new JavaScriptHeader("../js/jquery.atmosphere.js"));
         frame.addHeader(new JavaScriptHeader("../js/fbw.search.js"));
         frame.addHeader(new JavaScriptHeader("../js/fbw.serverpush.js"));
+        frame.addHeader(new JavaScriptHeader("../js/fbw.pull.js"));
 
         STabbedPane examplesPanel = new STabbedPane();
         examplesPanel.setPreferredSize(SDimension.FULLAREA);
